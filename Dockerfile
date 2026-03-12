@@ -4,9 +4,15 @@ FROM node:20-alpine AS build
 # 2. Fixed space: Added space after WORKDIR
 WORKDIR /app
 
-COPY package*.json ./
+# Change this:
+COPY my-app/package*.json ./
+# ...
+COPY my-app/ .
+
 RUN npm install
+
 COPY . .
+
 RUN npm run build
 
 FROM nginx:alpine
