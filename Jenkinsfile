@@ -14,7 +14,7 @@ pipeline{
                 bat '''
                 docker stop vite-container || echo Container not running
                 docker rm vite-container || echo Container not found
-                docker rub -d -p 8081:00 --name vite-container vite-app
+                docker run -d -p 8081:80 --name vite-container vite-app
                 '''
             }
         }
